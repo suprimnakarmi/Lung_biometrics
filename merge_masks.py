@@ -5,9 +5,10 @@ import os
 import matplotlib.pyplot as plt
 
 print("hello world")
+
 #Path for original mask
-left_mask_path ='ManualMask/leftMask'
-right_mask_path = 'ManualMask/rightMask'
+left_mask_path ='/home/suprim/dataset/MontgomerySet/ManualMask/leftMask'
+right_mask_path = '/home/suprim/dataset/MontgomerySet/ManualMask/rightMask'
 
 def list_mask(file_path):
   img = []
@@ -45,11 +46,11 @@ merged_images= merge_mask(left_mask, right_mask)
 plt.imshow(merged_images[137])
 
 #Saving the merged mask to the MergedMask directory
-save_path = 'ManualMask/MergedMask'
+save_path = '/home/suprim/dataset/MontgomerySet/ManualMask/MergedMasks'
 for i in range(138):
   io.imsave(save_path + '/' + f"m_{str(i).zfill(4)}.png", merged_images[i]  ) #.zfill(4) to make files 0000,0001
 
 #Loading the saved mask to check the merged manual masks
-a= io.imread('ManualMask/MergedMask/m_0030.png')
+a= io.imread('/home/suprim/dataset/MontgomerySet/ManualMask/MergedMasks/m_0030.png')
 
 plt.imshow(a)
